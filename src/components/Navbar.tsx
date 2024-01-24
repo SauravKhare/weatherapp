@@ -3,7 +3,7 @@ import { WeatherContext } from "../context/weather";
 
 export default function Navbar() {
 	const weatherContext = useContext(WeatherContext);
-	const [city, setCity] = useState(weatherContext.city);
+	const [city, setCity] = useState(weatherContext?.city);
 
 	function handleCity() {
 		weatherContext.setCity(city);
@@ -37,6 +37,18 @@ export default function Navbar() {
 						className="px-2 py-3 rounded-full bg-blue-900 text-white w-36"
 					>
 						Submit
+					</button>
+				</div>
+				<div>
+					<button
+						onClick={() =>
+							weatherContext?.setUnit(
+								weatherContext?.unit === "metric" ? "imperial" : "metric"
+							)
+						}
+						className="px-2 py-2.5 rounded-full border-4 border-blue-900 text-white w-36 font-semibold -ml-10"
+					>
+						{weatherContext?.unit === "metric" ? "Celsius" : "Fahrenheit"}
 					</button>
 				</div>
 			</div>

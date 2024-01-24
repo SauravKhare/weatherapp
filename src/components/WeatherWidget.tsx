@@ -1,14 +1,10 @@
 import { useContext } from "react";
 import { WeatherContext } from "../context/weather";
-import useWeatherForecast from "../hooks/useWeatherForecast";
+// import useWeatherForecast from "../hooks/useWeatherForecast";
 
 function WeatherWidget() {
 	const data = useContext(WeatherContext);
-	const FD = useWeatherForecast("Pune");
-	console.log(FD);
-	console.log(data);
-	const date = new Date();
-	console.log(date);
+
 	if (data.WD.loading) {
 		return <h1>Loading....</h1>;
 	} else {
@@ -21,13 +17,13 @@ function WeatherWidget() {
 								{String(data?.WD?.weatherData?.main?.temp).slice(0, -1)}
 							</h2>
 							<sup className="text-white font-ws font-semibold ml-1 text-2xl">
-								&deg;C
+								&deg;{data?.unit === "metric" ? "C" : "F"}
 							</sup>
 						</div>
 						<p className="text-white font-ws">
 							Feels like{" "}
 							{String(data?.WD?.weatherData?.main?.feels_like).slice(0, -1)}{" "}
-							<sup>&deg;C</sup>
+							<sup>&deg;{data?.unit === "metric" ? "C" : "F"}</sup>
 						</p>
 					</div>
 					<div>
@@ -50,20 +46,21 @@ function WeatherWidget() {
 							</span>
 						</p>
 						<p className="text-white font-ws mb-1 text-sm">
-							Min temp{" "}
+							Min temp :{" "}
 							{String(data?.WD?.weatherData?.main?.temp_min).slice(0, -1)}{" "}
-							<sup>&deg;C</sup>
+							<sup>&deg;{data?.unit === "metric" ? "C" : "F"}</sup>
 						</p>
 						<p className="text-white font-ws mb-1 text-sm">
-							Max temp{" "}
+							Max temp :{" "}
 							{String(data?.WD?.weatherData?.main?.temp_max).slice(0, -1)}{" "}
-							<sup>&deg;C</sup>
+							<sup>&deg;{data?.unit === "metric" ? "C" : "F"}</sup>
 						</p>
 						<p className="text-white font-ws mb-1 text-sm">
-							Humidity {String(data?.WD?.weatherData?.main?.humidity)}%
+							Humidity : {String(data?.WD?.weatherData?.main?.humidity)}%
 						</p>
 						<p className="text-white font-ws mb-1 text-sm">
-							Wind speed {String(data?.WD?.weatherData?.wind?.speed)} Km/H
+							Wind speed : {String(data?.WD?.weatherData?.wind?.speed)}{" "}
+							{data?.unit === "metric" ? "Km/H" : "mph"}
 						</p>
 					</div>
 				</div>

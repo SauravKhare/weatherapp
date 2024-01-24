@@ -34,7 +34,7 @@ const useWeatherData = (city, unit) => {
 		};
 
 		fetchWeatherData();
-	}, [city]);
+	}, [city, unit]);
 
 	return { weatherData, loading, error };
 };

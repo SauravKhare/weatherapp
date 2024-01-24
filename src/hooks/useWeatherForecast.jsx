@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useWeatherForecast = (city, days = 3) => {
+const useWeatherForecast = (city, unit = "metric", days = 3) => {
 	const [weatherData, setWeatherData] = useState(null);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
@@ -16,7 +16,7 @@ const useWeatherForecast = (city, days = 3) => {
 				}
 
 				const apiKey = import.meta.env.VITE_SOME_OPM;
-				const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`;
+				const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=${unit}&appid=${apiKey}`;
 
 				const response = await fetch(apiUrl);
 
@@ -42,7 +42,7 @@ const useWeatherForecast = (city, days = 3) => {
 		fetchWeatherData();
 
 		return () => setWeatherData(null); // Clear weather data on unmount or city change
-	}, [city, days]);
+	}, [city, days, unit]);
 
 	const groupWeatherDataByDay = (list, days) => {
 		const groupedData = [];
