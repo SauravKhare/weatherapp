@@ -3,7 +3,7 @@ import { WeatherContext } from "../context/weather";
 
 export default function Navbar() {
 	const weatherContext = useContext(WeatherContext);
-	const [city, setCity] = useState(weatherContext?.city);
+	const [city, setCityLocal] = useState(weatherContext?.city);
 
 	function handleCity() {
 		weatherContext.setCity(city);
@@ -30,7 +30,7 @@ export default function Navbar() {
 						placeholder="Enter your city here."
 						className="px-6 py-3 rounded-full w-80 mr-5"
 						value={city}
-						onChange={(e) => setCity(e.target.value)}
+						onChange={(e) => setCityLocal(e.target.value)}
 					/>
 					<button
 						onClick={handleCity}

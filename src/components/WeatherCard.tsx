@@ -6,7 +6,7 @@ export default function WeatherCard({ data, unit }) {
 				{date.toLocaleDateString("en-US", {
 					weekday: "long",
 				})}{" "}
-				{date.getDate()}
+				{date.getDate()} , {date.getHours()}:{date.getMinutes()}
 			</p>
 			<div className="flex">
 				<img

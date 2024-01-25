@@ -15,17 +15,17 @@ const useWeatherData = (city, unit) => {
 
 				if (!response.ok) {
 					const errorText = await response.text();
-					throw new Error(`Error: ${errorText}`);
+					throw new Error(errorText);
 				}
 
 				const data = await response.json();
 
-				// Check if the API response indicates a city not found error
 				if (data.cod && data.cod === "404") {
 					throw new Error("City not found");
 				}
 
 				setWeatherData(data);
+				setError(null);
 			} catch (apiError) {
 				setError(apiError.message);
 			} finally {

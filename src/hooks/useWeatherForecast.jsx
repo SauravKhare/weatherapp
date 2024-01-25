@@ -41,16 +41,14 @@ const useWeatherForecast = (city, unit = "metric", days = 3) => {
 
 		fetchWeatherData();
 
-		return () => setWeatherData(null); // Clear weather data on unmount or city change
+		return () => setWeatherData(null);
 	}, [city, days, unit]);
 
 	const groupWeatherDataByDay = (list, days) => {
 		const groupedData = [];
-
 		for (let i = 0; i < days; i++) {
-			const startIndex = i * 8; // Assuming 3-hour intervals, so 8 entries per day
+			const startIndex = i * 8;
 			const endIndex = startIndex + 8;
-
 			groupedData.push(list.slice(startIndex, endIndex));
 		}
 

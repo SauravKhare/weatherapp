@@ -6,7 +6,19 @@ export function WeatherForecast() {
 	const data = useContext(WeatherContext);
 
 	if (data.FD.loading) {
-		<p>Loading</p>;
+		return (
+			<div className="w-4/5 mx-auto mt-24 text-center">
+				<p className="animate-pulse text-5xl text-white font-lora font-semibold">
+					Loading
+				</p>
+			</div>
+		);
+	} else if (data.FD.error) {
+		return (
+			<div className="w-4/5 mx-auto mt-24 text-center">
+				<p className="text-5xl text-white font-lora font-semibold"></p>
+			</div>
+		);
 	} else {
 		return (
 			<section className="w-4/5 mx-auto">
