@@ -20,6 +20,9 @@ export default function Navbar() {
 				</div>
 				<div className="max-md:mb-5">
 					<p className="text-white font-ws text-1xl font-normal">
+						{date.toLocaleDateString("en-US", {
+							weekday: "long",
+						})}{" "}
 						{date.getDate()}/{date.getMonth() + 1}/{date.getFullYear()}{" "}
 						{date.getHours()}:{date.getMinutes()}
 					</p>

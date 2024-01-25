@@ -25,7 +25,7 @@ export function WeatherForecast() {
 				<h3 className="text-white text-2xl font-ws">Next 3 days forecast</h3>
 				<div className="flex mt-5 pb-20 gap-10 max-md:flex-col">
 					{data?.FD?.weatherData.map((item) => (
-						<WeatherCard data={item} unit={data?.unit} />
+						<WeatherCard key={item?.id} data={item} unit={data?.unit} />
 					))}
 				</div>
 			</section>
