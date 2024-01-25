@@ -1,6 +1,7 @@
 import { useState, createContext } from "react";
 import useWeatherData from "../hooks/useWether";
 import useWeatherForecast from "../hooks/useWeatherForecast";
+import { WeatherContextType } from "../types";
 
 export const WeatherContext = createContext(null);
 

@@ -6,15 +6,15 @@ import Error from "./Error";
 function WeatherWidget() {
 	const data = useContext(WeatherContext);
 
-	if (data.WD.loading) {
+	if (data?.WD?.loading) {
 		return <Loader />;
-	} else if (data.WD.error) {
-		const error = JSON.parse(data.WD.error);
+	} else if (data?.WD?.error) {
+		const error = JSON.parse(data?.WD?.error);
 		return <Error error={error} />;
 	} else {
 		return (
 			<section className="w-4/5 mx-auto mt-24 mb-10">
-				<div className="flex">
+				<div className="flex max-md:flex-col">
 					<div className="flex flex-col">
 						<div className="flex">
 							<h2 className="text-9xl text-white font-lora font-semibold">

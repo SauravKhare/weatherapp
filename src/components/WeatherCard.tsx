@@ -1,7 +1,7 @@
 export default function WeatherCard({ data, unit }) {
 	const date = new Date(data[4].dt_txt);
 	return (
-		<div className="flex flex-col items-center border-2 border-sky-900 p-3 rounded-xl bg-sky-900 drop-shadow-xl w-2/6	">
+		<div className="flex flex-col items-center border-2 border-sky-900 p-3 rounded-xl bg-sky-900 drop-shadow-xl md:w-2/6	">
 			<p className="text-white font-ws mb-1 text-sm">
 				{date.toLocaleDateString("en-US", {
 					weekday: "long",
