@@ -3,11 +3,11 @@ import { WeatherContext } from "../context/weather";
 
 export default function Navbar() {
 	const weatherContext = useContext(WeatherContext);
-	const [city, setCityLocal] = useState(weatherContext?.city);
+	const [city, setCityLocal] = useState(weatherContext?.city ?? "");
 	const date = new Date();
 
 	function handleCity() {
-		weatherContext.setCity(city);
+		weatherContext?.setCity(city);
 	}
 	return (
 		<div className="w-4/5 mx-auto py-7">
