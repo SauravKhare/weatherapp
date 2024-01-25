@@ -1,6 +1,6 @@
 # WeatherApp
 
-You will need and API Key from OpenWeatherMap to run get the weather data. Get one from [here](https://openweathermap.org/api])
+You will need and API Key from OpenWeatherMap to run get the weather data. Get one from [here](https://openweathermap.org/api)
 
 To run the app on local or any other environment, follow these steps:
 
